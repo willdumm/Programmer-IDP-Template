@@ -1,0 +1,186 @@
+\documentclass{paper}
+
+%%%% Patch to make lineno work nicely with amsmath
+% https://tex.stackexchange.com/a/461192
+% \usepackage{lineno}
+\usepackage{amsmath}  %% <- after lineno
+\usepackage{etoolbox} %% <- for \cspreto, \csappto
+% %% Patch 'normal' math environments:
+% \newcommand*\linenomathpatch[1]{%
+%   \cspreto{#1}{\linenomath}%
+%   \cspreto{#1*}{\linenomath}%
+%   \csappto{end#1}{\endlinenomath}%
+%   \csappto{end#1*}{\endlinenomath}%
+% }
+% \linenomathpatch{equation}
+% \linenomathpatch{gather}
+% \linenomathpatch{multline}
+% \linenomathpatch{align}
+% \linenomathpatch{alignat}
+% \linenomathpatch{flalign}
+% \linenumbers%
+% %%%% end patching
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[inline]{showlabels}
+\renewcommand{\showlabelfont}{\tiny\sffamily}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{prob}{Problem}
+\newtheorem{defn}{Definition}
+\newtheorem{obs}{Observation}
+\newtheorem{alg}{Algorithm}
+
+\newcommand{\median}{\operatorname{median}}
+
+
+
+% http://bytesizebio.net/2013/03/11/adding-supplementary-tables-and-figures-in-latex/
+\newcommand{\beginsupplement}{%
+        \setcounter{table}{0}
+        \renewcommand{\thetable}{S\arabic{table}}%
+        \setcounter{figure}{0}
+        \renewcommand{\thefigure}{S\arabic{figure}}%
+     }
+
+\hyphenation{Ge-nome Ge-nomes hyper-mut-ation through-put}
+% disable bibliography
+\renewcommand{\cite}[2][]{}
+\renewcommand{\bibliography}[1]{}
+\renewcommand{\bibliographystyle}[1][]{}
+\title{Individual Development Plan (June 2022)}
+\author{Will Dumm}
+
+\begin{document}
+\maketitle
+
+
+\section*{Career Goals}
+
+\subsubsection*{Long-Term and 10-year Goals}
+In the long term, my goal is to be productive in a flexible, self-directed but collaborative, location-agnostic position contributing as a programmer to an interesting project in science or applied math.
+This job will be:
+\begin{itemize}
+    \item senior-level
+    \item flexible, in the sense that I have some freedom to pursue projects that interest me
+    \item creative, not purely an application of technical skills
+    \item related to a goal or cause that is important to me
+\end{itemize}
+My current position offers most of these characteristics already, but I can learn to take advantage of them better. For example, I can use my freedom in my position to be more creative about how I approach my projects.
+I think this long-term goal is achievable within the next ten years.
+
+\subsubsection*{Last Year's Achievements}
+\begin{itemize}
+    \item Learned lots of background about phylogenetics and adjacent topics
+    \item Wrote a Python implementation of the history DAG
+    \item Wrote Parsimony Plateau paper on parsimony in the history DAG
+    \item Rewrote (parts of) \texttt{gctree} to utilize history DAG for expanded tree search, more efficient tree computations, and additional ranking criteria.
+    \item Began planning and writing paper describing improvements to gctree.
+    \item Familiarized myself with \texttt{Usher} and \texttt{matOptimize}, and helped get mutation annotated DAG (MAD) implementation started
+    \item Used \texttt{Usher} to verify that parsimony allows considerable tree uncertainty, at least for SARS-CoV-2 data.
+\end{itemize}
+\subsubsection*{This Year's Goals}
+\begin{itemize}
+    \item (from last year) Becoming a proficient c++ programmer
+    \item (help to) complete implementation of the MAD, integration with \texttt{matOptimize}, and parsimony tree search.
+    \item Implementation of (more) useful applications of the history DAG, including
+        \begin{itemize}
+            \item a more general tree search motivated by an arbitrary weight function or likelihood, informed by context-sensitive model.
+            \item implementation in some form of the ideas described in the `conditional damara distribution' grant application.
+        \end{itemize}
+    \item Complete gctree v2 paper, with posterior predictive check, and simulation validation evaluating performance of gctree with hDAG, isotype- and mutability- parsimony compared to branching process likelihood alone.
+    \item Use hDAG to understand the shape of the  parsimony plateau, and develop ways to understand the shape of the hDAG in general. This will hopefully be another paper, with William's help.
+    \item Submit hDAG / Parsimony Plateau paper
+    \item Continue managing interns, making sure that tehy are productive and supported, and getting the experience they want, and learning what that takes.
+\end{itemize}
+
+\section*{Development of Project-Specific Knowledge}
+\subsubsection*{Project Description}
+My projects for the foreseeable future involve applications of the history-DAG, as described in the goals for this year.
+
+\subsubsection*{New Skills and Knowledge Gained}
+\begin{itemize}
+    \item Biology background, including basic immunology and phylogenetics
+    \item Basic understanding of applications of MCMC and variational inference to Bayesian phylogenetics
+    \item Detailed understanding of parsimony and Fitch, Sankoff algorithms
+    \item Re-familiarization with Python, DAG-related algorithms, shell, and cluster use
+    \item Basic understanding of many of the group's projects
+    \item Familiarity with variational inference applied to phylogenetics
+    \item Extremely detailed understanding of \texttt{gctree} inference
+\end{itemize}
+\subsubsection*{Skills and Knowledge Needed}
+The following skills will be needed to make project progress:
+\begin{itemize}
+    \item Continued familiarization with c++
+    \item Detailed understanding of the Usher MATUtils and MATOptimize codebase
+    \item Continued progress in understanding the limitations of the history DAG in our applications
+    \item Efficient, productive, and supportive intern management
+\end{itemize}
+
+\section*{Career Skills}
+
+\subsubsection*{Strengths}
+
+\subsubsection*{Communication Skills}
+In my last IDP version, I identified ways in which I could improve my communication skills.
+There have been a few opportunities since then to present my project progress, for example in group meeting presentations and paper writing.
+However, I haven't meaningfully implemented my main proposal for improving communication skills, which I still think will be helpful:
+I should improve my general readiness to explain project ideas without preparation, for example by verbalizing each day a new idea that I had that day.
+
+
+\subsubsection*{Strengths and Other Opportunities for Improvement}
+
+I am pleased with my success so far at being driven by enthusiasm for my project, and at learning both from experimentation and development of theory.
+Although it may sometimes hold me back, focus on rigor is a reassuring antidote to a sometimes-chaotic soup of project ideas.
+
+There's plenty to improve upon, here are a few items in particular:
+
+As I mentioned last year, I expect to improve my time management in this position:
+\begin{itemize}
+    \item Keeping sight of immediate goals for each day or subproject, and staying on track
+    \item Knowing better when to shift attention when progress on a task slows
+    \item Having a more complete array of useful tasks in mind, and better recognizing directions with high potential for progress
+    \item (New) Better prioritizing tasks, especially by efficiently delegating appropriate tasks to interns, or deferring them in favor of those with higher immediate value
+\end{itemize}
+I can address the first two items by pausing to check in with my goals and progress throughout the day.
+The third can be helped by continuing to write down any ideas or questions that come up while working on other tasks.
+
+
+Other opportunities for improvement:
+\begin{itemize}
+    \item I would like to better anticipate how I can help collaborators, like Ognian and interns, instead of waiting for them to identify what they need from me.
+        Spending some time carefully thinking through their proposed tasks and making notes about key ideas and potential pitfalls will help with this.
+    \item I would like to take more time to think broadly about projects, brainstorm new project ideas, and communicating them to someone instead of letting them languish in my notes.
+    \item Finally, although code testing is already important to me, I'm not satisfied with the number of issues caused by my code this year.
+        I should force myself to spend more time testing even fairly informal scripts.
+    
+\end{itemize}
+\subsubsection*{Opportunities for Contacts and Collaboration}
+I'm looking forward to continuing to work with interns.
+I also hope to learn a lot from Ognian as he continues to implement the MAD, and from the Usher team as we integrate \texttt{larch} and \texttt{matOptimize}.
+% \begin{figure}[h]
+% \centering
+% \includegraphics[width=0.35\textwidth]{figures/subsplit.pdf}
+% \caption{\
+% A subsplit structure.
+% }%
+% \label{fig:subsplit}
+% \end{figure}
+
+\nocite{*}
+\bibliography{main}
+
+
+% \clearpage
+% \section*{Supplementary Materials}
+% \beginsupplement
+% Supplementary text and figures here.
+
+
+\end{document}
